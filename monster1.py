@@ -1,3 +1,4 @@
+"""Namngern Monster1"""
 print("                    ◣◣                                ◢◢")
 print("                     ◣◣◣                           ◢◢◢")
 print("                      ◣◣◣◣                       ◢◢◢◢")
@@ -30,8 +31,6 @@ print("                       ▆▆                         ▆▆")
 print("                       ▆▆▆                        ▆▆▆")
 print("                     ██ ██ ██                    ██ ██ ██")
 print("                      ▼  ▼  ▼                    ▼  ▼  ▼")
-
-
 
 
 
