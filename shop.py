@@ -24,4 +24,4 @@ Assasin Shop (น้ำเงิน)
   Kunai
   Reaver Knife
   Singularity Knife
- 
+อันที่เกินๆคือยังเลือกไม่ได้
