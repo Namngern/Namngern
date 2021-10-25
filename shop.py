@@ -42,3 +42,12 @@ trousers กางเกง -> Caluz
 shoe รองเท้า --> Civada
                 Portur
                 Dentius
+
+**************************************Archer Shop**************************************
+
+หมวก             เกราะ             กางเกง                 รองเท้า            อาวุธ
+-Hawkeye         -Titania         -Dynamic fury          -Fearless        -Wywind
+-Lucky helmet    -Dragon scale    -Glory                 -Bloodlust       -Spiritchaos
+-Starlight       -Divinity        -Sacred protection     -Flash boost     -Justment
+
+***************************************************************************************
