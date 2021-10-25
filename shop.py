@@ -27,7 +27,6 @@ Assasin Shop (น้ำเงิน)
 อันที่เกินๆคือยังเลือกไม่ได้
 
 Magic shop ไอย๊าาาาาาาาาาาาาาาาาาาาาาาาาา
-
 Stuff คฑา -> Ventustinear
               Elecza
               ManotaiO
