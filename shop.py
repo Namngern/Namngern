@@ -51,3 +51,10 @@ shoe รองเท้า --> Civada
 -Starlight       -Divinity        -Sacred protection     -Flash boost     -Justment
 
 ***************************************************************************************
+
+**************************************Sword Shop**************************************
+หมวก            เกราะ             กางเกง             รองเท้า            อาวุธ
+-Samurai Hat    -Samurai Suit    -Samurai Pant      -Samurai Shoe    -Katana
+-Chao Tak Hat   -Chao Tak Suit   -Chao Tak Pant     -Chao Tak Shoe   -Excalibur
+-Knight hat     -Knight Suit     -Knight Pant       -Knight Shoe     -Lightsaber
+***************************************************************************************
