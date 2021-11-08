@@ -8,8 +8,8 @@ image = pygame.image.load('ICON.jfif')
 pygame.display.set_icon(image)
 name_game = pygame.image.load('name.png')
 name_game = pygame.transform.scale(name_game,(700,300))
-mon = pygame.image.load('Monster3-1.png')
-mon = pygame.transform.scale(mon,(500,500))
+mixer.music.load('sound bg.mp3')
+mixer.music.play()
 
 class button():
     def __init__(self, x, y ,image, scale):
@@ -37,13 +37,76 @@ class button():
 
         return action
 
+class good_char():
+    def __init__(self, x, y, name, hp, atk):
+        self.name = name
+        self.hp = hp
+        self.atk = atk
+        self.alive = True
+        self.animation_list = []
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
+        for i in range(2):
+            img = pygame.image.load(f'{self.name}/{i}.png')
+            img = pygame.transform.scale(img, (img.get_width()/2, img.get_height()/2))
+            self.animation_list.append(img)
+        self.image = self.animation_list[self.frame_index]
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
+    def update(self):
+        #loop for motion
+        animation_cooldown = 400
+        self.image = self.animation_list[self.frame_index]
+        if pygame.time.get_ticks() - self.update_time > animation_cooldown:
+            self.update_time = pygame.time.get_ticks()
+            self.frame_index += 1
+        if self.frame_index >= len(self.animation_list):
+            self.frame_index = 0
+        
+    def draw(self):
+        screen.blit(self.image, self.rect)
+
+class bad_char():
+    def __init__(self, x, y, name, hp, atk):
+        self.name = name
+        self.hp = hp
+        self.atk = atk
+        self.alive = True
+        self.animation_list = []
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
+        for i in range(2):
+            img = pygame.image.load(f'{self.name}/{i}.png')
+            img = pygame.transform.scale(img, (img.get_width()*4.5, img.get_height()*4.5))
+            self.animation_list.append(img)
+        self.image = self.animation_list[self.frame_index]
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
+    def update(self):
+        #loop for motion
+        animation_cooldown = 400
+        self.image = self.animation_list[self.frame_index]
+        if pygame.time.get_ticks() - self.update_time > animation_cooldown:
+            self.update_time = pygame.time.get_ticks()
+            self.frame_index += 1
+        if self.frame_index >= len(self.animation_list):
+            self.frame_index = 0
+    def draw(self):
+        screen.blit(self.image, self.rect)
+
+
+#create charecter
+monster3 = bad_char(1000, 520, 'Monster3', 30, 10)
+archer = good_char(300, 520, 'Archer', 50, 10)
+
 #create button
 start_btn = pygame.image.load('START.png')
 quit_btn = pygame.image.load('QUIT.png')
 start = button(620, 500, start_btn, 0.25)
-quit = button(620, 600, quit_btn, 0.25)
-
-bg_intro = pygame.image.load('bd.png')
+quit = button(620, 600, quit_btn, 0.25)    
+bg_intro = pygame.image.load('bg_intro.jpeg')
 bg_intro = pygame.transform.scale(bg_intro,(1400,900))
 def intro():
     intro = True
@@ -100,6 +163,10 @@ def Background_3():
                     Background_4()
 
         screen.blit(bg_3,(0,0))
+        monster3.update()
+        monster3.draw()
+        archer.update()
+        archer.draw()
         pygame.display.update()
 
 bg_4 = pygame.image.load('bg_4.jpg')
@@ -142,7 +209,6 @@ def Background_6():
                     Background_7()
 
         screen.blit(bg_6,(0,0))
-        screen.blit(mon,(700,450))
         pygame.display.update()
 
 bg_7 = pygame.image.load('bg_7.png')
@@ -174,3 +240,4 @@ def Background_8():
         pygame.display.update()
 
 intro()
+
