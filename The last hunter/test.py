@@ -96,13 +96,13 @@ def draw_text(text, font, color, x, y):
     
 #create character
 monster1 = char(1000, 490, 'Slime', 6, 1, 1, 0.75)
-monster2 = char(1000, 490, 'Monster2', 6, 1, 1, 0.75)
-monster3 = char(1000, 490, 'Monster3', 12, 4, 2, 0.75)
-monster4 = char(1000, 600, 'Monster4', 20, 5, 1, 1)
-monster5 = char(1000, 490, 'Monster5', 6, 1, 1, 1)
-monster6 = char(900, 600, 'Golem', 18, 5, 5, 1)
-monster7 = char(1000, 520, 'Monster7', 15, 6, 1, 1)
-monster8 = char(1000, 490, 'Monster8', 6, 1, 1, 1)
+monster2 = char(1000, 490, 'Black bull', 10, 3, 2, 0.75)
+monster3 = char(1000, 490, 'Necromancer', 12, 4, 2, 0.75)
+monster4 = char(1000, 600, 'Big eye', 20, 5, 1, 1)
+monster5 = char(1000, 490, 'Cobra', 15, 5, 1, 1)
+monster6 = char(900, 650, 'Golem', 18, 5, 5, 1)
+monster7 = char(1000, 520, 'Grater', 15, 6, 1, 1)
+monster8 = char(1050, 490, 'Eros', 30, 8, 5, 1)
 archer = char(300, 520, 'Archer', 8, 4, 1, 0.5)
 assasin = char(300, 520, 'Assasin', 7, 3, 1, 0.5)
 witch = char(300, 520, 'Witch', 7, 5, 1, 0.5)
@@ -123,6 +123,13 @@ sword_hpbar = heartbar(100, 200, swordman.hp, swordman.max_hp)
 ass_hpbar = heartbar(100, 200, assasin.hp, assasin.max_hp)
 witch_hpbar = heartbar(100, 200, witch.hp, witch.max_hp)
 mon1_hpbar = heartbar(1000, 200, monster1.hp, monster1.max_hp)
+mon2_hpbar = heartbar(1000, 200, monster2.hp, monster2.max_hp)
+mon3_hpbar = heartbar(1000, 200, monster3.hp, monster3.max_hp)
+mon4_hpbar = heartbar(1000, 200, monster4.hp, monster4.max_hp)
+mon5_hpbar = heartbar(1000, 200, monster5.hp, monster5.max_hp)
+mon6_hpbar = heartbar(1000, 200, monster6.hp, monster6.max_hp)
+mon7_hpbar = heartbar(1000, 200, monster7.hp, monster7.max_hp)
+mon8_hpbar = heartbar(1000, 200, monster8.hp, monster8.max_hp)
 bg_intro = pygame.image.load('bg_intro.jpeg')
 bg_intro = pygame.transform.scale(bg_intro,(1400,900))
 def intro():
@@ -154,10 +161,9 @@ def story():
         screen.blit(bg_story,(0,0))
         if next.draw():
             choose_class()
-        story_pop.update()
-        story_pop.draw()
+        #story_pop.update()
+        #story_pop.draw()
         pygame.display.update()
-
 
 choose = pygame.image.load('choose your class.png')
 choose = pygame.transform.scale(choose,(1400,900))
@@ -219,10 +225,12 @@ def Background_1(char1, char2, char3):
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 bg_2 = pygame.image.load('bg_2.jpg')
@@ -239,6 +247,8 @@ def Background_2(char1, char2, char3):
         screen.blit(bg_2,(0,0))
         monster2.draw()
         monster2.update()
+        draw_text(f'{monster2.name} HP: {monster2.hp}', font, white, 1000, 180)
+        mon2_hpbar.draw(monster2.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -248,14 +258,17 @@ def Background_2(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 bg_3 = pygame.image.load('bg_3.jpg')
@@ -272,6 +285,8 @@ def Background_3(char1, char2, char3):
         screen.blit(bg_3,(0,0))
         monster3.update()
         monster3.draw()
+        draw_text(f'{monster3.name} HP: {monster3.hp}', font, white, 1000, 180)
+        mon3_hpbar.draw(monster3.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -281,19 +296,26 @@ def Background_3(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 bg_4 = pygame.image.load('bg_4.jpg')
 bg_4 = pygame.transform.scale(bg_4,(1400,900))
 def Background_4(char1, char2, char3):
+    archer = char(300, 670, 'Archer', 8, 4, 1, 0.5)
+    assasin = char(300, 670, 'Assasin', 7, 3, 1, 0.5)
+    witch = char(300, 670, 'Witch', 7, 5, 1, 0.5)
+    swordman = char(300, 670, 'Swordman', 10, 2, 4, 0.5)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -305,6 +327,8 @@ def Background_4(char1, char2, char3):
         screen.blit(bg_4,(0,0))
         monster4.update()
         monster4.draw()
+        draw_text(f'{monster4.name} HP: {monster4.hp}', font, white, 1000, 180)
+        mon4_hpbar.draw(monster4.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -314,14 +338,17 @@ def Background_4(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
         
 bg_5 = pygame.image.load('bg_5.jpg')
@@ -338,6 +365,8 @@ def Background_5(char1, char2, char3):
         screen.blit(bg_5,(0,0))
         monster5.draw()
         monster5.update()
+        draw_text(f'{monster5.name} HP: {monster5.hp}', font, white, 1000, 180)
+        mon5_hpbar.draw(monster5.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -347,19 +376,26 @@ def Background_5(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 bg_6 = pygame.image.load('bg_6.jpg')
 bg_6 = pygame.transform.scale(bg_6,(1400,900))
 def Background_6(char1, char2, char3):
+    archer = char(300, 700, 'Archer', 8, 4, 1, 0.5)
+    assasin = char(300, 700, 'Assasin', 7, 3, 1, 0.5)
+    witch = char(300, 700, 'Witch', 7, 5, 1, 0.5)
+    swordman = char(300, 700, 'Swordman', 10, 2, 4, 0.5)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -371,6 +407,8 @@ def Background_6(char1, char2, char3):
         screen.blit(bg_6,(0,0))
         monster6.update()
         monster6.draw()
+        draw_text(f'{monster6.name} HP: {monster6.hp}', font, white, 1000, 180)
+        mon6_hpbar.draw(monster6.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -380,19 +418,26 @@ def Background_6(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 bg_7 = pygame.image.load('bg_7.png')
 bg_7 = pygame.transform.scale(bg_7,(1400,900))
 def Background_7(char1, char2, char3):
+    archer = char(300, 600, 'Archer', 8, 4, 1, 0.5)
+    assasin = char(300, 600, 'Assasin', 7, 3, 1, 0.5)
+    witch = char(300, 600, 'Witch', 7, 5, 1, 0.5)
+    swordman = char(300, 600, 'Swordman', 10, 2, 4, 0.5)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -404,6 +449,8 @@ def Background_7(char1, char2, char3):
         screen.blit(bg_7,(0,0))
         monster7.update()
         monster7.draw()
+        draw_text(f'{monster7.name} HP: {monster7.hp}', font, white, 1000, 180)
+        mon7_hpbar.draw(monster7.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -413,19 +460,26 @@ def Background_7(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 bg_8 = pygame.image.load('bg_8.png')
 bg_8 = pygame.transform.scale(bg_8,(1400,900))
 def Background_8(char1, char2, char3):
+    archer = char(460, 520, 'Archer', 8, 4, 1, 0.5)
+    assasin = char(460, 520, 'Assasin', 7, 3, 1, 0.5)
+    witch = char(460, 520, 'Witch', 7, 5, 1, 0.5)
+    swordman = char(460, 520, 'Swordman', 10, 2, 4, 0.5)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -437,6 +491,8 @@ def Background_8(char1, char2, char3):
         screen.blit(bg_8,(0,0))
         monster8.draw()
         monster8.update()
+        draw_text(f'{monster8.name} HP: {monster8.hp}', font, white, 1000, 180)
+        mon8_hpbar.draw(monster8.hp)
         if char1:
             swordman.update()
             swordman.draw()
@@ -446,14 +502,17 @@ def Background_8(char1, char2, char3):
             archer.update()
             archer.draw()
             archer_hpbar.draw(archer.hp)
+            draw_text(f'{archer.name} HP: {archer.hp}', font, white, 100, 180)
         elif char3:
             assasin.update()
             assasin.draw()
             ass_hpbar.draw(assasin.hp)
+            draw_text(f'{assasin.name} HP: {assasin.hp}', font, white, 100, 180)
         else:
             witch.update()
             witch.draw()
             witch_hpbar.draw(witch.hp)
+            draw_text(f'{witch.name} HP: {witch.hp}', font, white, 100, 180)
         pygame.display.update()
 
 intro()
