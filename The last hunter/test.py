@@ -13,8 +13,6 @@ mixer.music.load('sound bg.mp3')
 mixer.music.play(-1)
 sound_victory = pygame.mixer.Sound('sound victory.mp3')
 sound_defeat = pygame.mixer.Sound('sound defeat.mp3')
-money = pygame.image.load('money.png')
-money = pygame.transform.scale(money,(30,30))
 red = (255, 0, 0)
 green = (0, 255, 0)
 black = (0, 0, 0)
@@ -33,7 +31,7 @@ class button():
         action = False
         #get mouse position
         pos = pygame.mouse.get_pos()
-        
+
         #check over and click
         if self.rect.collidepoint(pos):
             if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
@@ -112,7 +110,6 @@ def draw_text(text, font, color, x, y):
     screen.blit(img1, (x, y))
 
 #create potion
-
 potion_heal = 100
 
 #create character
@@ -123,7 +120,7 @@ monster4 = char(1000, 600, 'Big eye', 15, 7, 3, 5, 0, 1)
 monster5 = char(1000, 490, 'Cobra', 18, 8, 4, 7, 0, 0.8)
 monster6 = char(940, 650, 'Golem', 21, 10, 4, 3, 0, 1)
 monster7 = char(1000, 520, 'Grater', 25, 11, 6, 3, 0, 1)
-monster8 = char(1050, 490, 'Eros', 30, 12, 7, 6, 0, 1)
+monster8 = char(1050, 490, 'Eros', 1, 12, 7, 6, 0, 1)
 
 #create button
 start_btn = pygame.image.load('START.png')
@@ -154,17 +151,6 @@ mon6_hpbar = heartbar(1000, 200, monster6.hp, monster6.max_hp)
 mon7_hpbar = heartbar(1000, 200, monster7.hp, monster7.max_hp)
 mon8_hpbar = heartbar(1000, 200, monster8.hp, monster8.max_hp)
 
-bg_rip = pygame.image.load('rip.png')
-bg_rip = pygame.transform.scale(bg_rip,(1400,900))
-def rip():
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                quit()
-
-        screen.blit(bg_rip,(0,0))
-        pygame.display.update()
-        
 
 bg_intro = pygame.image.load('bg_intro.jpeg')
 bg_intro = pygame.transform.scale(bg_intro,(1400,900))
@@ -227,6 +213,17 @@ def choose_class():
             Background_1(False, False, True)
         if choice4.draw():
             Background_1(False, False, False)
+        pygame.display.update()
+
+bg_rip = pygame.image.load('rip.png')
+bg_rip = pygame.transform.scale(bg_rip,(1400,900))
+def rip():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+
+        screen.blit(bg_rip,(0,0))
         pygame.display.update()
 
 cer_bg = pygame.image.load('certificate.png')
