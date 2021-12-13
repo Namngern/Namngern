@@ -1,5 +1,4 @@
 import pygame
-import urllib.request
 from pygame import mixer
 
 #window setting
@@ -12,6 +11,8 @@ name_game = pygame.image.load('name.png')
 name_game = pygame.transform.scale(name_game,(700,200))
 mixer.music.load('sound bg.mp3')
 mixer.music.play(-1)
+sound_victory = pygame.mixer.Sound('sound victory.mp3')
+sound_defeat = pygame.mixer.Sound('sound defeat.mp3')
 money = pygame.image.load('money.png')
 money = pygame.transform.scale(money,(30,30))
 red = (255, 0, 0)
@@ -122,7 +123,7 @@ monster4 = char(1000, 600, 'Big eye', 15, 7, 3, 5, 0, 1)
 monster5 = char(1000, 490, 'Cobra', 18, 8, 4, 7, 0, 0.8)
 monster6 = char(940, 650, 'Golem', 21, 10, 4, 3, 0, 1)
 monster7 = char(1000, 520, 'Grater', 25, 11, 6, 3, 0, 1)
-monster8 = char(1050, 490, 'Eros', 1, 12, 7, 6, 0, 1)
+monster8 = char(1050, 490, 'Eros', 30, 12, 7, 6, 0, 1)
 
 #create button
 start_btn = pygame.image.load('START.png')
@@ -230,7 +231,6 @@ def choose_class():
 
 cer_bg = pygame.image.load('certificate.png')
 cer2_bg = pygame.image.load('certificate2.png')
-#cer_bg = pygame.transform.scale(cer_bg, (1400,900))
 cer2_bg = pygame.transform.scale(cer2_bg, (1400,900))
 def cer():
     while True:
@@ -260,6 +260,7 @@ def Background_1(char1, char2, char3):
     action_cooldown = 0
     action_wait = 90
     check = 1
+    check2 = 0
     game_over = 0
     del_potion = 0
     while True:
@@ -360,10 +361,16 @@ def Background_1(char1, char2, char3):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_2(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -446,10 +453,16 @@ def Background_1(char1, char2, char3):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_2(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -532,10 +545,16 @@ def Background_1(char1, char2, char3):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_2(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -618,10 +637,16 @@ def Background_1(char1, char2, char3):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_2(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -642,6 +667,7 @@ def Background_2(char1, char2, char3, del_potion):
     action_cooldown = 0
     action_wait = 90
     check = 1
+    check2 = 0
     game_over = 0
     while True:
         attack = False
@@ -741,12 +767,17 @@ def Background_2(char1, char2, char3, del_potion):
                     current_fighter = 1
             if game_over == 1:
                 swordman.hp = swordman.max_hp
-                coin = 600
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_3(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -829,10 +860,16 @@ def Background_2(char1, char2, char3, del_potion):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_3(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -914,12 +951,17 @@ def Background_2(char1, char2, char3, del_potion):
                     current_fighter = 1
             if game_over == 1:
                 assasin.hp = assasin.max_hp
-                coin = 600
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_3(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -1001,12 +1043,17 @@ def Background_2(char1, char2, char3, del_potion):
                     current_fighter = 1
             if game_over == 1:
                 witch.hp = witch.max_hp
-                coin = 600
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_3(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -1028,6 +1075,7 @@ def Background_3(char1, char2, char3, del_potion):
     action_wait = 90
     game_over = 0
     check = 1
+    check2 = 0
     while True:
         attack = False
         potion = False
@@ -1127,10 +1175,16 @@ def Background_3(char1, char2, char3, del_potion):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_4(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -1212,12 +1266,17 @@ def Background_3(char1, char2, char3, del_potion):
                     current_fighter = 1
             if game_over == 1:
                 archer.hp = archer.max_hp
-
-                screen.blit(victory,(400,0))       
+                screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1       
                 if next2.draw():
                     Background_4(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -1300,10 +1359,16 @@ def Background_3(char1, char2, char3, del_potion):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_4(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -1386,10 +1451,16 @@ def Background_3(char1, char2, char3, del_potion):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_4(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -1402,6 +1473,7 @@ def Background_4(char1, char2, char3, del_potion):
     action_cooldown = 0
     action_wait = 90
     check = 1
+    check2 = 0
     archer = char(300, 670, 'Archer', 13, 7, 3, 5, 3-del_potion, 0.5)
     assasin = char(300, 670, 'Assasin', 10, 7, 4, 8, 4-del_potion, 0.5)
     witch = char(300, 670, 'Witch', 10, 10, 3, 5, 3-del_potion, 0.5)
@@ -1512,10 +1584,16 @@ def Background_4(char1, char2, char3, del_potion):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_5(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -1598,10 +1676,16 @@ def Background_4(char1, char2, char3, del_potion):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_5(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -1684,10 +1768,16 @@ def Background_4(char1, char2, char3, del_potion):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_5(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -1770,10 +1860,16 @@ def Background_4(char1, char2, char3, del_potion):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_5(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -1787,6 +1883,7 @@ def Background_5(char1, char2, char3, del_potion):
     action_wait = 90
     game_over = 0
     check = 1
+    check2 = 0
     archer = char(300, 520, 'Archer', 14, 9, 5, 5, 3-del_potion, 0.5)
     assasin = char(300, 520, 'Assasin', 12, 9, 5, 9, 4-del_potion, 0.5)
     witch = char(300, 520, 'Witch', 11, 12, 5, 5, 3-del_potion, 0.5)
@@ -1894,10 +1991,16 @@ def Background_5(char1, char2, char3, del_potion):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_6(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -1980,10 +2083,16 @@ def Background_5(char1, char2, char3, del_potion):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_6(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -2066,10 +2175,16 @@ def Background_5(char1, char2, char3, del_potion):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_6(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -2152,10 +2267,16 @@ def Background_5(char1, char2, char3, del_potion):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_6(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -2179,6 +2300,7 @@ def Background_6(char1, char2, char3, del_potion):
     action_wait = 90
     game_over = 0
     check = 1
+    check2 = 0
     while True:
         attack = False
         potion = False
@@ -2278,10 +2400,16 @@ def Background_6(char1, char2, char3, del_potion):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_7(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -2364,10 +2492,16 @@ def Background_6(char1, char2, char3, del_potion):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_7(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -2450,10 +2584,16 @@ def Background_6(char1, char2, char3, del_potion):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_7(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -2536,10 +2676,16 @@ def Background_6(char1, char2, char3, del_potion):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_7(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -2563,6 +2709,7 @@ def Background_7(char1, char2, char3, del_potion):
     action_wait = 90
     game_over = 0
     check = 1
+    check2 = 0
     while True:
         attack = False
         potion = False
@@ -2662,10 +2809,16 @@ def Background_7(char1, char2, char3, del_potion):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_8(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -2748,10 +2901,16 @@ def Background_7(char1, char2, char3, del_potion):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_8(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -2834,10 +2993,16 @@ def Background_7(char1, char2, char3, del_potion):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_8(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -2920,10 +3085,16 @@ def Background_7(char1, char2, char3, del_potion):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     Background_8(char1, char2, char3, del_potion)
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
@@ -2947,6 +3118,7 @@ def Background_8(char1, char2, char3, del_potion):
     action_wait = 90
     game_over = 0
     check = 1
+    check2 = 0
     while True:
         attack = False
         potion = False
@@ -3046,10 +3218,16 @@ def Background_8(char1, char2, char3, del_potion):
             if game_over == 1:
                 swordman.hp = swordman.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     cer()
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char2:
@@ -3131,10 +3309,16 @@ def Background_8(char1, char2, char3, del_potion):
             if game_over == 1:
                 archer.hp = archer.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     cer()
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         elif char3:
@@ -3215,10 +3399,16 @@ def Background_8(char1, char2, char3, del_potion):
             if game_over == 1:
                 assasin.hp = assasin.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     cer()
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         else:
@@ -3299,10 +3489,16 @@ def Background_8(char1, char2, char3, del_potion):
             if game_over == 1:
                 witch.hp = witch.max_hp
                 screen.blit(victory,(400,0))
+                if check2 == 0:
+                    sound_victory.play()
+                    check2 = 1
                 if next2.draw():
                     cer()
             if game_over == -1:
                 screen.blit(defeat,(400,0))
+                if check2 == 0:
+                    sound_defeat.play()
+                    check2 = 1
                 if next2.draw():
                     rip()
         pygame.display.update()
