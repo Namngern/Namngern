@@ -120,7 +120,7 @@ monster4 = char(1000, 600, 'Big eye', 15, 7, 3, 5, 0, 1)
 monster5 = char(1000, 490, 'Cobra', 18, 8, 4, 7, 0, 0.8)
 monster6 = char(940, 650, 'Golem', 21, 10, 4, 3, 0, 1)
 monster7 = char(1000, 520, 'Grater', 25, 11, 6, 3, 0, 1)
-monster8 = char(1050, 490, 'Eros', 1, 12, 7, 6, 0, 1)
+monster8 = char(1050, 490, 'Eros', 30, 12, 7, 6, 0, 1)
 
 #create button
 start_btn = pygame.image.load('START.png')
@@ -138,7 +138,6 @@ quit = button(620, 600, quit_btn, 0.75)
 next = button(1200, 700, next_btn, 1)
 potion_hp = button(800, 650, potion_img, 0.4)
 attack_btn = button(400, 650, attack_img, 0.4)
-shop_btn = button(400, 250, shop2_img, 0.09)
 next2 = button(1200, 700, next2_img, 0.25)
 #create hpbar
 mon1_hpbar = heartbar(1000, 200, monster1.hp, monster1.max_hp)
@@ -178,7 +177,7 @@ def story():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     choose_class()
-                    
+
         screen.blit(bg_story,(0,0))
         if next.draw():
             choose_class()
